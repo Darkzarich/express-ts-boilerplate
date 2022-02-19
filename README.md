@@ -1,5 +1,7 @@
 Boilerplate\template repository for starting `Express + Typescript + Jest` (with [supertest](https://github.com/visionmedia/supertest)) project.
 
+To create a repository based on this template simple click "Use this template" button above
+
 ### Precautions
 
 It uses **folder-by-type scructure** which suitable for **small projects** (~10 files in each type).
