@@ -1,10 +1,19 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "module": "commonjs",
-    "rootDir": "./",
-    "outDir": "./build",
+    "outDir": "./dist",
+    "baseUrl": ".",
+    "lib": ["es2023"],
+    "checkJs": true,
+    "module": "NodeNext",
+    "target": "ES2020",
+    "skipLibCheck": true,
+    "moduleResolution": "nodenext",
+    "resolveJsonModule": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
     "esModuleInterop": true,
     "strict": true
-  }
+  },
+  "exclude": ["node_modules", "dist"],
+  "include": ["index.ts", "src/**/*.ts"]
 }
