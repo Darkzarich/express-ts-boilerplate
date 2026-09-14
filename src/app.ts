@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import helmet from 'helmet';
 import type { Env } from './configs/env.config.ts';
 import {
   errorHandler,
@@ -9,8 +10,8 @@ import {
 export function createApp(config: Env) {
   const app = express();
 
-  // Don't advertise the framework in response headers
-  app.disable('x-powered-by');
+  // Sets security-related headers and removes X-Powered-By
+  app.use(helmet());
 
   // Allowed origins come from CORS_ORIGIN; restrict it for production use
   app.use(cors({ origin: config.CORS_ORIGIN }));

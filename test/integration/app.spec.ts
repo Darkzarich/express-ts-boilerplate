@@ -19,6 +19,14 @@ describe('Test route', () => {
     expect(res.headers['x-powered-by']).toBeUndefined();
   });
 
+  it('should set security headers', async () => {
+    const res = await request(app).get('/');
+
+    expect(res.headers['x-content-type-options']).toBe('nosniff');
+    expect(res.headers['content-security-policy']).toBeDefined();
+    expect(res.headers['strict-transport-security']).toBeDefined();
+  });
+
   it('should return 404 for unknown routes', async () => {
     const res = await request(app).get('/does-not-exist');
 
