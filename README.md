@@ -4,13 +4,13 @@ To create a repository based on this template, simply click the "Use this templa
 
 ### Requirements
 
-- Node.js 22 or newer (see `.nvmrc`, run `nvm use` to switch)
+- Node.js 22.18 or newer (see `.nvmrc`, run `nvm use` to switch)
 
 ### Scripts
 
 | Command                   | Description                                           |
 | ------------------------- | ----------------------------------------------------- |
-| `npm run start:dev`       | Run the app from TypeScript sources with `tsx`        |
+| `npm run start:dev`       | Run the app from TypeScript sources with Node         |
 | `npm run start:dev:watch` | Same as above, restarting on file changes             |
 | `npm run build`           | Compile to `dist/`                                    |
 | `npm start`               | Run the compiled app from `dist/`                     |
@@ -18,6 +18,8 @@ To create a repository based on this template, simply click the "Use this templa
 | `npm run test:watch`      | Run tests in watch mode                               |
 | `npm run test:coverage`   | Run tests with a coverage report                      |
 | `npm run lint:types`      | Type-check app and test sources                       |
+
+Node runs `.ts` files directly by [stripping types](https://nodejs.org/api/typescript.html), so only erasable TypeScript syntax is allowed (no `enum`s, `namespace`s or parameter properties) — `tsc` enforces this via `erasableSyntaxOnly`. Relative imports must use the `.ts` extension.
 
 Tests are transpiled by Vitest without type checking, so run `npm run lint:types` (e.g. in CI) to catch type errors.
 
