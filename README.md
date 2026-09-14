@@ -1,4 +1,4 @@
-Boilerplate/template repository for starting an `Express 5 + TypeScript + Jest` (with [supertest](https://github.com/forwardemail/supertest)) project.
+Boilerplate/template repository for starting an `Express 5 + TypeScript + Vitest` (with [supertest](https://github.com/forwardemail/supertest)) project.
 
 To create a repository based on this template, simply click the "Use this template" button above.
 
@@ -14,12 +14,12 @@ To create a repository based on this template, simply click the "Use this templa
 | `npm run start:dev:watch` | Same as above, restarting on file changes             |
 | `npm run build`           | Compile to `dist/`                                    |
 | `npm start`               | Run the compiled app from `dist/`                     |
-| `npm test`                | Run tests with Jest                                   |
+| `npm test`                | Run tests once with Vitest                            |
+| `npm run test:watch`      | Run tests in watch mode                               |
+| `npm run test:coverage`   | Run tests with a coverage report                      |
 | `npm run lint:types`      | Type-check app and test sources                       |
 
-The port can be set with the `PORT` environment variable (defaults to `3000`).
-
-Tests are transpiled with [`@swc/jest`](https://github.com/swc-project/pkgs/tree/main/packages/jest) without type checking, so run `npm run lint:types` (e.g. in CI) to catch type errors.
+Tests are transpiled by Vitest without type checking, so run `npm run lint:types` (e.g. in CI) to catch type errors.
 
 ### Precautions
 

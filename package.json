@@ -13,7 +13,9 @@
     "start:dev:watch": "tsx watch index.ts",
     "build": "tsc --project ./",
     "lint:types": "tsc --project ./ --noEmit && tsc --project ./test --noEmit",
-    "test": "jest"
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
   },
   "keywords": [
     "boilerplate",
@@ -27,16 +29,14 @@
     "express": "^5.2.1"
   },
   "devDependencies": {
-    "@swc/core": "^1.16.2",
-    "@swc/jest": "^0.2.39",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
-    "@types/jest": "^30.0.0",
     "@types/node": "^22",
     "@types/supertest": "^7.2.1",
-    "jest": "^30.5.1",
+    "@vitest/coverage-v8": "^5.0.0",
     "supertest": "^7.2.2",
     "tsx": "^4.23.13",
-    "typescript": "^7.0.2"
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.0"
   }
 }
