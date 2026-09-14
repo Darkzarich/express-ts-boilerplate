@@ -1,0 +1,36 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": [
+    "eslint",
+    "typescript",
+    "unicorn",
+    "oxc",
+    "import",
+    "node",
+    "promise",
+    "vitest"
+  ],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn",
+    "perf": "warn"
+  },
+  "options": {
+    "typeAware": true,
+    "denyWarnings": true,
+    "reportUnusedDisableDirectives": "warn"
+  },
+  "env": {
+    "node": true,
+    "es2024": true
+  },
+  "rules": {
+    "typescript/no-floating-promises": "error",
+    "typescript/no-misused-promises": "error",
+    "typescript/await-thenable": "error",
+    "typescript/consistent-type-imports": "error",
+    "import/no-cycle": "error",
+    "eslint/no-console": "off"
+  },
+  "ignorePatterns": ["dist", "coverage"]
+}

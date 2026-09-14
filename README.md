@@ -18,12 +18,16 @@ To create a repository based on this template, simply click the "Use this templa
 | `npm run test:watch`      | Run tests in watch mode                       |
 | `npm run test:coverage`   | Run tests with a coverage report              |
 | `npm run lint:types`      | Type-check app and test sources               |
+| `npm run lint`            | Lint with Oxlint (including type-aware rules) |
+| `npm run lint:fix`        | Lint and apply safe automatic fixes           |
 | `npm run format`          | Format all files with Prettier                |
 | `npm run format:check`    | Check formatting without writing changes      |
 
 Node runs `.ts` files directly by [stripping types](https://nodejs.org/api/typescript.html), so only erasable TypeScript syntax is allowed (no `enum`s, `namespace`s or parameter properties) — `tsc` enforces this via `erasableSyntaxOnly`. Relative imports must use the `.ts` extension.
 
 Tests are transpiled by Vitest without type checking, so run `npm run lint:types` (e.g. in CI) to catch type errors.
+
+Linting uses [Oxlint](https://oxc.rs/docs/guide/usage/linter) rather than ESLint: `typescript-eslint` does not support TypeScript 7 yet, while Oxlint's type-aware rules (such as `no-floating-promises`) are built on it. Rules are configured in `.oxlintrc.json`.
 
 ### Precautions
 
