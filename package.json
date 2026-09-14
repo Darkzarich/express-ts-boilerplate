@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A boilerplate for Express + TS project",
   "main": "dist/index.js",
-  "type": "commonjs",
+  "type": "module",
   "engines": {
     "node": ">=22"
   },
