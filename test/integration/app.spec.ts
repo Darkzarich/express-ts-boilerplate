@@ -65,3 +65,22 @@ describe('Rate limiting', () => {
     expect(res.headers['ratelimit-policy']).toBeUndefined();
   });
 });
+
+describe('Health check', () => {
+  it('should respond with ok and bypass rate limiting', async () => {
+    const limitedApp = createApp(parseEnv({ RATE_LIMIT_MAX: '1' }));
+
+    const responses = await Promise.all(
+      Array.from({ length: 3 }, () => request(limitedApp).get('/health')),
+    );
+
+    for (const res of responses) {
+      expect(res.status).toBe(200);
+      expect(res.body).toEqual({ status: 'ok' });
+    }
+
+    // Other routes are still limited
+    await request(limitedApp).get('/test').expect(200);
+    await request(limitedApp).get('/test').expect(429);
+  });
+});

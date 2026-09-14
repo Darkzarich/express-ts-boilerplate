@@ -7,6 +7,7 @@ import {
   errorHandler,
   notFoundHandler,
 } from './middlewares/error.middleware.ts';
+import healthRouter from './routes/health.route.ts';
 
 export function createApp(config: Env) {
   const app = express();
@@ -15,6 +16,9 @@ export function createApp(config: Env) {
 
   // Sets security-related headers and removes X-Powered-By
   app.use(helmet());
+
+  // Registered before rate limiting so frequent health checks are never blocked
+  app.use('/health', healthRouter);
 
   if (config.RATE_LIMIT_MAX > 0) {
     app.use(
