@@ -1,6 +1,9 @@
 import request from 'supertest';
 import { describe, expect, it } from 'vitest';
-import app from '../../src/app.ts';
+import { createApp } from '../../src/app.ts';
+import { parseEnv } from '../../src/configs/env.config.ts';
+
+const app = createApp(parseEnv({}));
 
 describe('Test route', () => {
   it('[GET: /test] should return test string', async () => {
