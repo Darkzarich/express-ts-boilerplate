@@ -1,19 +1,23 @@
 {
   "compilerOptions": {
     "outDir": "./dist",
-    "baseUrl": ".",
+    "rootDir": ".",
+    "target": "es2023",
     "lib": ["es2023"],
-    "checkJs": true,
-    "module": "NodeNext",
-    "target": "ES2020",
-    "skipLibCheck": true,
+    "module": "nodenext",
     "moduleResolution": "nodenext",
+    "types": ["node"],
     "resolveJsonModule": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
     "esModuleInterop": true,
-    "strict": true
+    "isolatedModules": true,
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "sourceMap": true
   },
-  "exclude": ["node_modules", "dist"],
-  "include": ["index.ts", "src/**/*.ts"]
+  "include": ["index.ts", "src/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
 }

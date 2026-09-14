@@ -1,5 +1,9 @@
-/** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
+/** @type {import('jest').Config} */
 module.exports = {
-  preset: 'ts-jest',
   testEnvironment: 'node',
+  roots: ['<rootDir>/test'],
+  // Tests are transpiled only; type checking is done by `npm run lint:types`
+  transform: {
+    '^.+\\.ts$': ['@swc/jest'],
+  },
 };
