@@ -8,6 +8,9 @@ describe('parseEnv', () => {
       HOST: '0.0.0.0',
       PORT: 3000,
       CORS_ORIGIN: '*',
+      TRUST_PROXY: 0,
+      RATE_LIMIT_WINDOW_MS: 60_000,
+      RATE_LIMIT_MAX: 100,
     });
   });
 

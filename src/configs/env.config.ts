@@ -13,6 +13,12 @@ const envSchema = z.object({
     .transform((value) =>
       value === '*' ? '*' : value.split(',').map((origin) => origin.trim()),
     ),
+  // Number of reverse proxies in front of the app (0 when exposed directly).
+  // Needed so rate limiting sees the real client IP.
+  TRUST_PROXY: z.coerce.number().int().min(0).default(0),
+  RATE_LIMIT_WINDOW_MS: z.coerce.number().int().positive().default(60_000),
+  // Max requests per client IP per window; 0 disables rate limiting
+  RATE_LIMIT_MAX: z.coerce.number().int().min(0).default(100),
 });
 
 export type Env = z.infer<typeof envSchema>;

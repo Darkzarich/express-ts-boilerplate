@@ -43,3 +43,25 @@ describe('Test route', () => {
     expect(res.status).toBe(400);
   });
 });
+
+describe('Rate limiting', () => {
+  it('should reject requests over the limit', async () => {
+    const limitedApp = createApp(parseEnv({ RATE_LIMIT_MAX: '2' }));
+
+    await request(limitedApp).get('/test').expect(200);
+    await request(limitedApp).get('/test').expect(200);
+    const res = await request(limitedApp).get('/test');
+
+    expect(res.status).toBe(429);
+    expect(res.headers['ratelimit-policy']).toBeDefined();
+  });
+
+  it('should be disabled when RATE_LIMIT_MAX is 0', async () => {
+    const unlimitedApp = createApp(parseEnv({ RATE_LIMIT_MAX: '0' }));
+
+    const res = await request(unlimitedApp).get('/test');
+
+    expect(res.status).toBe(200);
+    expect(res.headers['ratelimit-policy']).toBeUndefined();
+  });
+});
