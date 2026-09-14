@@ -8,16 +8,18 @@ To create a repository based on this template, simply click the "Use this templa
 
 ### Scripts
 
-| Command                   | Description                                           |
-| ------------------------- | ----------------------------------------------------- |
-| `npm run start:dev`       | Run the app from TypeScript sources with Node         |
-| `npm run start:dev:watch` | Same as above, restarting on file changes             |
-| `npm run build`           | Compile to `dist/`                                    |
-| `npm start`               | Run the compiled app from `dist/`                     |
-| `npm test`                | Run tests once with Vitest                            |
-| `npm run test:watch`      | Run tests in watch mode                               |
-| `npm run test:coverage`   | Run tests with a coverage report                      |
-| `npm run lint:types`      | Type-check app and test sources                       |
+| Command                   | Description                                   |
+| ------------------------- | --------------------------------------------- |
+| `npm run start:dev`       | Run the app from TypeScript sources with Node |
+| `npm run start:dev:watch` | Same as above, restarting on file changes     |
+| `npm run build`           | Compile to `dist/`                            |
+| `npm start`               | Run the compiled app from `dist/`             |
+| `npm test`                | Run tests once with Vitest                    |
+| `npm run test:watch`      | Run tests in watch mode                       |
+| `npm run test:coverage`   | Run tests with a coverage report              |
+| `npm run lint:types`      | Type-check app and test sources               |
+| `npm run format`          | Format all files with Prettier                |
+| `npm run format:check`    | Check formatting without writing changes      |
 
 Node runs `.ts` files directly by [stripping types](https://nodejs.org/api/typescript.html), so only erasable TypeScript syntax is allowed (no `enum`s, `namespace`s or parameter properties) — `tsc` enforces this via `erasableSyntaxOnly`. Relative imports must use the `.ts` extension.
 

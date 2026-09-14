@@ -15,7 +15,9 @@
     "lint:types": "tsc --project ./ --noEmit && tsc --project ./test --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "keywords": [
     "boilerplate",
@@ -34,6 +36,7 @@
     "@types/node": "^22",
     "@types/supertest": "^7.2.1",
     "@vitest/coverage-v8": "^5.0.0",
+    "prettier": "3.9.6",
     "supertest": "^7.2.2",
     "typescript": "^7.0.2",
     "vitest": "^5.0.0"
