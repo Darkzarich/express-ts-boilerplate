@@ -79,7 +79,6 @@ describe('Health check', () => {
       expect(res.body).toEqual({ status: 'ok' });
     }
 
-    // Other routes are still limited
     await request(limitedApp).get('/test').expect(200);
     await request(limitedApp).get('/test').expect(429);
   });

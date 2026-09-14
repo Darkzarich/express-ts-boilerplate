@@ -1,6 +1,5 @@
 import type { ErrorRequestHandler, RequestHandler } from 'express';
 
-// Fallback for unmatched routes
 export const notFoundHandler: RequestHandler = (req, res) => {
   res.status(404).json({ error: 'Not Found' });
 };

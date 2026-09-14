@@ -17,7 +17,7 @@ const server = app.listen(env.PORT, env.HOST, (error) => {
 function shutdown(signal: NodeJS.Signals) {
   console.log(`[server]: ${signal} received, shutting down gracefully`);
 
-  // Stop accepting new connections and wait for in-flight requests to finish
+  // Waits for in-flight requests; idle keep-alive connections are closed immediately
   server.close((error) => {
     if (error) {
       console.error(error);
@@ -26,9 +26,6 @@ function shutdown(signal: NodeJS.Signals) {
 
     process.exit(0);
   });
-
-  // Close keep-alive connections that have no request in progress
-  server.closeIdleConnections();
 
   setTimeout(() => {
     console.error('[server]: Shutdown timed out, forcing exit');

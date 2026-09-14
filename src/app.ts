@@ -14,7 +14,6 @@ export function createApp(config: Env) {
 
   app.set('trust proxy', config.TRUST_PROXY);
 
-  // Sets security-related headers and removes X-Powered-By
   app.use(helmet());
 
   // Registered before rate limiting so frequent health checks are never blocked
@@ -31,10 +30,8 @@ export function createApp(config: Env) {
     );
   }
 
-  // Allowed origins come from CORS_ORIGIN; restrict it for production use
   app.use(cors({ origin: config.CORS_ORIGIN }));
 
-  // Parse JSON and URL-encoded data
   app.use(express.urlencoded({ extended: false }));
   app.use(express.json());
 
