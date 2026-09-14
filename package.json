@@ -9,8 +9,8 @@
   },
   "scripts": {
     "start": "node dist/index.js",
-    "start:dev": "node index.ts",
-    "start:dev:watch": "node --watch index.ts",
+    "start:dev": "node --env-file-if-exists=.env index.ts",
+    "start:dev:watch": "node --env-file-if-exists=.env --watch index.ts",
     "build": "tsc --project ./",
     "lint:types": "tsc --project ./ --noEmit && tsc --project ./test --noEmit",
     "test": "vitest run",
@@ -30,7 +30,8 @@
   "license": "MIT",
   "dependencies": {
     "cors": "^2.8.6",
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "zod": "^4.6.5"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",

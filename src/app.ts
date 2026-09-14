@@ -1,13 +1,14 @@
 import express, { type ErrorRequestHandler } from 'express';
 import cors from 'cors';
+import { env } from './configs/env.config.ts';
 
 const app = express();
 
 // Don't advertise the framework in response headers
 app.disable('x-powered-by');
 
-// Allows requests from any origin. Restrict `origin` for production use.
-app.use(cors());
+// Allowed origins come from CORS_ORIGIN; restrict it for production use
+app.use(cors({ origin: env.CORS_ORIGIN }));
 
 // Parse JSON and URL-encoded data
 app.use(express.urlencoded({ extended: false }));
