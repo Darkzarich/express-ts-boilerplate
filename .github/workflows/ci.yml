@@ -20,7 +20,7 @@ jobs:
       fail-fast: false
       matrix:
         # Minimum supported version and the version pinned in .nvmrc
-        node-version: ['22.18', '24']
+        node-version: ['26.0', '26']
     steps:
       - uses: actions/checkout@v7
 

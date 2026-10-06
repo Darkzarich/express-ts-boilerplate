@@ -9,11 +9,11 @@ To create a repository based on this template, simply click the "Use this templa
 - **Validated config**: environment variables are parsed with [zod](https://zod.dev/) at startup and fail fast with a readable error
 - **Production readiness**: `/health` endpoint and graceful shutdown on `SIGTERM`/`SIGINT`
 - **Tooling**: TypeScript 7 (`tsc`), Node's built-in TypeScript support for development, Vitest, Oxlint, Prettier
-- **CI**: GitHub Actions running audit, formatting, lint, type checks, tests and build on Node 22.18 and 24, plus Dependabot
+- **CI**: GitHub Actions running audit, formatting, lint, type checks, tests and build on Node 26.0 and the latest 26.x, plus Dependabot
 
 ### Requirements
 
-- Node.js 22.18 or newer (see `.nvmrc`, run `nvm use` to switch)
+- Node.js 26 or newer (see `.nvmrc`, run `nvm use` to switch)
 
 ### Getting started
 
